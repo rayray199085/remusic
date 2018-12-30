@@ -1,0 +1,119 @@
+package com.project.stephencao.remusic.fragments;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import com.project.stephencao.remusic.R;
+import com.project.stephencao.remusic.activity.DisplaySongActivity;
+import com.project.stephencao.remusic.adapter.MyLocalMusicSingerAdapter;
+import com.project.stephencao.remusic.bean.MusicInfo;
+import com.project.stephencao.remusic.bean.SingerListItems;
+import com.project.stephencao.remusic.utils.ConstantValues;
+import com.project.stephencao.remusic.utils.LocalMusicUtil;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MusicFileFragment extends Fragment {
+    private View mView;
+    private ListView mListView;
+    private List<SingerListItems> mSingerListItemsList;
+    private List<MusicInfo> mExternalMusicInfoList;
+    public static final String BUNDLE_TITLE = "title";
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case ConstantValues.DISPLAY_DEFAULT_LOCAL_MUSIC_FILES: {
+                    prepareFileListViewData();
+                    MyLocalMusicSingerAdapter myLocalMusicSingerAdapter =
+                            new MyLocalMusicSingerAdapter(getContext(),mSingerListItemsList,ConstantValues.IS_FILE_ITEM);
+                    mListView.setAdapter(myLocalMusicSingerAdapter);
+                    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Intent intent = new Intent(getContext(), DisplaySongActivity.class);
+                            intent.putExtra("url",mSingerListItemsList.get(position).parentPath);
+                            startActivity(intent);
+                        }
+                    });
+                    break;
+                }
+            }
+        }
+    };
+
+    private void prepareFileListViewData() {
+        mSingerListItemsList = new ArrayList<>();
+        for (MusicInfo musicInfo : mExternalMusicInfoList) {
+            File file = new File(musicInfo.url);
+            boolean isExist = false;
+            int position = 0;
+            while (position <mSingerListItemsList.size()) {
+                if (file.getParentFile().getName().equals(mSingerListItemsList.get(position).parentFileName)) {
+                    mSingerListItemsList.get(position).songCount++;
+                    isExist = true;
+                }
+                position++;
+            }
+            if(!isExist){
+                SingerListItems items = new SingerListItems();
+                items.parentPath = file.getParentFile().getAbsolutePath();
+                items.songCount = 1;
+                items.parentFileName = file.getParentFile().getName();
+                mSingerListItemsList.add(items);
+            }
+        }
+    }
+
+    public static MusicFileFragment newInstance(String title) {
+        Bundle bundle = new Bundle();
+        bundle.putString(BUNDLE_TITLE, title);
+        MusicFileFragment fragment = new MusicFileFragment();
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (mView != null) {
+            ViewGroup parent = (ViewGroup) mView.getParent();
+            if (parent != null) {
+                parent.removeView(mView);
+            }
+            return mView;
+        }
+        mView = inflater.inflate(R.layout.view_file_fragment, container, false);
+        initView();
+        initData();
+        return mView;
+    }
+
+    private void initData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // get external music info
+                mExternalMusicInfoList = LocalMusicUtil.getMusicInfoList(getContext(),
+                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
+                mHandler.sendEmptyMessage(ConstantValues.DISPLAY_DEFAULT_LOCAL_MUSIC_FILES);
+            }
+        }).start();
+    }
+
+    private void initView() {
+        mListView = mView.findViewById(R.id.lv_file_fragment_content_display);
+    }
+}

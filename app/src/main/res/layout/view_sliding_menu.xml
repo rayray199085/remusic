@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="300dp"
+              android:layout_gravity="left"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:background="@drawable/sliding_menu_title_bar"
+                    android:layout_height="wrap_content">
+        <ImageButton android:layout_width="wrap_content"
+                   android:background="@drawable/close_drawer_selector"
+                   android:layout_margin="5dp"
+                   android:id="@+id/iv_sliding_menu_close"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
+                   android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <ListView android:layout_width="match_parent"
+              android:background="#e0000000"
+              android:id="@+id/lv_sliding_menu_options"
+              android:layout_height="wrap_content">
+    </ListView>
+</LinearLayout>

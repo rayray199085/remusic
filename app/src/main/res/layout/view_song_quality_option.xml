@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView android:layout_width="match_parent"
+              android:text="下载歌曲品质"
+              android:textSize="25sp"
+              android:layout_margin="5dp"
+              android:layout_height="wrap_content"/>
+    <RadioGroup android:layout_width="match_parent"
+                android:id="@+id/rg_song_quality_group"
+                android:layout_height="wrap_content">
+        <RadioButton android:layout_width="match_parent"
+                     android:text="64kbit/s"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_song_quality_64"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="128kbit/s"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_song_quality_128"
+                     android:layout_margin="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="192kbit/s"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_song_quality_192"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="256kbit/s"
+                     android:textSize="20sp"
+                     android:layout_margin="5dp"
+                     android:id="@+id/rbtn_song_quality_256"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="320kbit/s"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_song_quality_320"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+</LinearLayout>

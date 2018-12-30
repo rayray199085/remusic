@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:background="@drawable/title_bar9"
+                android:layout_height="wrap_content">
+    <ImageButton android:layout_width="wrap_content"
+                 android:layout_centerVertical="true"
+                 android:layout_marginLeft="10dp"
+                 android:id="@+id/ibtn_local_music_title_bar_back"
+                 android:background="@drawable/back_arrow_selector"
+                 android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_marginLeft="20dp"
+              android:textSize="30sp"
+              android:text="本地音乐"
+              android:id="@+id/tv_local_music_title_bar_description"
+              android:layout_centerVertical="true"
+              android:textStyle="bold"
+              android:textColor="#bababa"
+              android:layout_toRightOf="@+id/ibtn_local_music_title_bar_back"
+              android:layout_height="wrap_content"/>
+    <ImageButton android:layout_width="wrap_content"
+                 android:layout_centerVertical="true"
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/ibtn_local_music_title_bar_search"
+                 android:layout_toLeftOf="@id/ibtn_local_music_title_bar_selection"
+                 android:layout_marginRight="40dp"
+                 android:background="@drawable/magnifier_selector"
+                 android:layout_height="wrap_content"/>
+    <ImageButton android:layout_width="wrap_content"
+                 android:layout_centerVertical="true"
+                 android:layout_marginRight="15dp"
+                 android:id="@+id/ibtn_local_music_title_bar_selection"
+                 android:background="@drawable/selection_selector"
+                 android:layout_alignParentRight="true"
+                 android:layout_height="wrap_content"/>
+
+</RelativeLayout>

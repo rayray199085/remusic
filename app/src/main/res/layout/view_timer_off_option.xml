@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView android:layout_width="match_parent"
+              android:text="定时停止播放"
+              android:textSize="25sp"
+              android:layout_margin="5dp"
+              android:layout_height="wrap_content"/>
+    <RadioGroup android:layout_width="match_parent"
+                android:id="@+id/rg_timer_off_music_group"
+                android:layout_height="wrap_content">
+        <RadioButton android:layout_width="match_parent"
+                     android:text="10分钟后"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_timer_off_music_10"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="20分钟后"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_timer_off_music_20"
+                     android:layout_margin="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="30分钟后"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_timer_off_music_30"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="45分钟后"
+                     android:textSize="20sp"
+                     android:layout_margin="5dp"
+                     android:id="@+id/rbtn_timer_off_music_45"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="60分钟后"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_timer_off_music_60"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+        <RadioButton android:layout_width="match_parent"
+                     android:text="90分钟后"
+                     android:textSize="20sp"
+                     android:id="@+id/rbtn_timer_off_music_90"
+                     android:layout_marginLeft="5dp"
+                     android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+</LinearLayout>
