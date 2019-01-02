@@ -13,4 +13,9 @@ In this project, I followed the online project 'remusic' to build the interface 
 I used view page indicator from (https://github.com/JakeWharton/ViewPagerIndicator) to for view pagers.
 
 ![image](https://github.com/rayray199085/remusic/blob/master/images/Screenshot_2019-01-02-13-30-17.png)
+![image](https://github.com/rayray199085/remusic/blob/master/images/Screenshot_2019-01-02-13-30-58.png)
+![image](https://github.com/rayray199085/remusic/blob/master/images/Screenshot_2019-01-02-13-31-08.png)
+![image](https://github.com/rayray199085/remusic/blob/master/images/Screenshot_2019-01-02-13-30-32.png)
+![image](https://github.com/rayray199085/remusic/blob/master/images/Screenshot_2019-01-02-13-30-43.png)
+![image](https://github.com/rayray199085/remusic/blob/master/images/Screenshot_2019-01-02-13-30-18.png)
 
